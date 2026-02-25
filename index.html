@@ -25,18 +25,6 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .scan-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: rgba(212, 175, 55, 0.5);
-            top: 0;
-            animation: scan 3s linear infinite;
-        }
-        @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
-        }
         .gold-glow {
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
@@ -50,17 +38,20 @@
         .text-shadow-strong {
             text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.9);
         }
+        /* ループアニメーション用の装飾 */
+        .loop-border {
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section: 下辺（Bottom）に最大限寄せるレイアウト -->
+    <!-- Hero Section: 下辺にコンテンツを配置 -->
     <header class="relative h-screen flex items-end justify-center overflow-hidden border-b border-white/5 pb-10 md:pb-16">
         <div class="absolute inset-0 z-0">
-            <!-- ヒーロー画像: images/hero.png | bg-bottom で最下部を基準 -->
             <div class="w-full h-full bg-[url('images/hero.png')] bg-cover bg-bottom" 
                  onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2076&auto=format&fit=crop)'"></div>
-            <!-- コンテンツの視認性を守るためのボトムグラデーション -->
             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent opacity-90"></div>
         </div>
         
@@ -69,11 +60,10 @@
                 Web Browser Based Immersive Experience
             </div>
             
-            <!-- スローガン: 画面最下部にさらに近づける -->
             <p class="text-xl md:text-3xl font-light tracking-[0.4em] mb-10 text-white uppercase text-shadow-strong">Investigate. Decrypt. Dominate.</p>
             
             <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <button onclick="document.getElementById('entry').scrollIntoView({behavior: 'smooth'})" class="button-glow w-full md:w-auto px-16 py-5 bg-[#d4af37] text-black font-bold rounded-sm hover:bg-white transition-all duration-300 flex items-center justify-center group">
+                <button onclick="document.getElementById('purpose').scrollIntoView({behavior: 'smooth'})" class="button-glow w-full md:w-auto px-16 py-5 bg-[#d4af37] text-black font-bold rounded-sm hover:bg-white transition-all duration-300 flex items-center justify-center group">
                     <i data-lucide="zap" class="mr-2 w-5 h-5 fill-current"></i> セッションに接続する
                 </button>
                 <div class="text-[10px] text-gray-400 font-cyber tracking-widest text-shadow-strong">
@@ -84,89 +74,145 @@
         </div>
     </header>
 
-    <!-- Section 01: Mission (目的) -->
-    <section id="purpose" class="py-32 px-6 max-w-6xl mx-auto">
+    <!-- Section 01: Mission & Journey Map (目的と行動サイクル) -->
+    <section id="purpose" class="py-32 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-20">
-            <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">01. MISSION OBJECTIVE</h2>
-            <p class="text-4xl md:text-5xl font-bold">街に眠る「資産」を再定義せよ</p>
+            <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">01. MISSION JOURNEY</h2>
+            <p class="text-4xl md:text-5xl font-bold italic tracking-tighter">街に潜伏し、破片（piece）を集めよ</p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-16 items-center font-light">
-            <div class="space-y-8">
-                <p class="text-xl leading-relaxed text-gray-300">
-                    小樽はかつて「北のウォール街」と呼ばれ、日本の近代化を支えた巨大な富が集中した街でした。しかし、現在その真の資産は、表層的な観光の裏側に封印されています。
-                </p>
+        <div class="grid lg:grid-cols-12 gap-12 items-start font-light">
+            <!-- テキスト説明 -->
+            <div class="lg:col-span-4 space-y-8">
                 <div class="card-glass p-8 rounded-lg border-l-4 border-[#d4af37]">
-                    <h3 class="font-bold text-[#d4af37] text-xl mb-4 flex items-center">
-                        <i data-lucide="database" class="mr-3 w-6 h-6"></i> 歴史アーカイブのハッキング
+                    <h3 class="font-bold text-[#d4af37] text-xl mb-4 flex items-center uppercase tracking-widest font-cyber">
+                        Goal of investigation
                     </h3>
-                    <p class="text-gray-400">
-                        榎本武揚が夢見た国際貿易都市の記憶、小林多喜二が描いた労働者の熱、そして歴史に刻まれなかった物語。
-                        これらは街の至る所に隠された「NFCタグ」にデジタルアーカイブとして封印されています。
+                    <p class="text-gray-300 leading-relaxed">
+                        あなたの目的は、全世界に散らばった「piece」をスキャンして情報を収集し、隠された歴史的価値を「GP（ゴーストポイント）」として奪還すること。
                     </p>
                 </div>
-                <p class="text-lg leading-relaxed text-gray-400">
-                    あなたの目的は、WEBアプリを通じて街の物理的な場所をスキャンし、隠された歴史的価値を「GP（ゴーストポイント）」として奪還すること。
-                    <span class="text-white font-bold italic underline decoration-[#d4af37]">風景を眺めるだけの観光は、ここで終わりです。</span>
+                <p class="text-lg text-gray-400 leading-relaxed px-2">
+                    小樽という巨大なアーカイブに潜入し、誰よりも長く、深く街に溶け込む。その滞在時間こそが、あなたを「王者」へと導く唯一の資産となります。
                 </p>
             </div>
-            <div class="relative card-glass p-4 rounded-xl border-[#d4af37]/20">
-                <div class="scan-line"></div>
-                <div class="aspect-square bg-[url('https://images.unsplash.com/photo-1621619856624-42fd193a0661?q=80&w=2058&auto=format&fit=crop')] bg-cover rounded-lg opacity-60"></div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="card-glass p-6 text-center animate-pulse border-[#d4af37]/50 bg-black/40">
-                        <i data-lucide="scan" class="w-12 h-12 mx-auto text-[#d4af37] mb-2"></i>
-                        <p class="font-cyber text-xs tracking-widest">SCANNING ASSETS...</p>
+
+            <!-- ジャーニーマップ（ビジュアル部分） -->
+            <div class="lg:col-span-8">
+                <div class="relative card-glass p-8 md:p-12 rounded-3xl border-white/10 overflow-hidden">
+                    
+                    <!-- 背景の微かなグリッド -->
+                    <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:20px_20px]"></div>
+
+                    <div class="relative space-y-12">
+                        <!-- Step 01: Beginning -->
+                        <div class="flex items-center gap-6">
+                            <div class="flex flex-col items-center">
+                                <div class="w-12 h-12 bg-[#d4af37] text-black rounded-full flex items-center justify-center">
+                                    <i data-lucide="zap" class="w-6 h-6 fill-current"></i>
+                                </div>
+                                <div class="w-0.5 h-12 bg-gradient-to-b from-[#d4af37] to-transparent"></div>
+                            </div>
+                            <div class="pb-6">
+                                <p class="font-cyber text-[10px] text-[#d4af37] tracking-[0.2em]">MISSION START</p>
+                                <h4 class="text-xl font-bold text-white mt-1 uppercase tracking-wider">ビギニングエントリーする</h4>
+                            </div>
+                        </div>
+
+                        <!-- Step 02: Exploration Loop -->
+                        <div class="loop-border p-6 md:p-10 relative">
+                            <div class="absolute -top-4 left-6 bg-[#0a0a0c] px-4 py-1 border border-[#d4af37]/30 rounded-full">
+                                <p class="font-cyber text-[10px] text-[#d4af37] animate-pulse">RECURSIVE LOOP</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                                <div class="flex items-center gap-4 group">
+                                    <div class="w-10 h-10 card-glass border-[#d4af37]/30 rounded-lg flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37] group-hover:text-black transition-colors">
+                                        <i data-lucide="navigation"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-200">街を歩く</p>
+                                </div>
+                                <div class="flex items-center gap-4 group">
+                                    <div class="w-10 h-10 card-glass border-[#d4af37]/30 rounded-lg flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37] group-hover:text-black transition-colors">
+                                        <i data-lucide="scan"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-200">「piece」をスキャンする</p>
+                                </div>
+                                <div class="flex items-center gap-4 group">
+                                    <div class="w-10 h-10 card-glass border-[#d4af37]/30 rounded-lg flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37] group-hover:text-black transition-colors">
+                                        <i data-lucide="message-square-dashed"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-200">指令に従う or 新たなpieceを探す</p>
+                                </div>
+                                <div class="flex items-center gap-4 group">
+                                    <div class="w-10 h-10 card-glass border-[#d4af37]/30 rounded-lg flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37] group-hover:text-black transition-colors">
+                                        <i data-lucide="database"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-200">GPを貯める or GPを使う</p>
+                                </div>
+                            </div>
+
+                            <!-- ループ矢印アイコン -->
+                            <div class="absolute -bottom-5 right-10 w-10 h-10 bg-black border border-[#d4af37]/50 rounded-full flex items-center justify-center">
+                                <i data-lucide="refresh-cw" class="w-5 h-5 text-[#d4af37] animate-spin-slow"></i>
+                            </div>
+                        </div>
+
+                        <!-- Step 03: Judgment -->
+                        <div class="flex items-center gap-6 mt-8">
+                            <div class="flex flex-col items-center">
+                                <div class="w-0.5 h-10 bg-gradient-to-b from-transparent via-red-500 to-red-500"></div>
+                                <div class="w-14 h-14 border-2 border-red-500 rounded-xl flex items-center justify-center text-red-500 gold-glow">
+                                    <i data-lucide="clock" class="w-8 h-8"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-cyber text-sm text-red-500 tracking-[0.2em] font-bold">17:00 ⚡️ JUDGMENT</p>
+                                <h4 class="text-2xl font-bold text-white mt-1 italic">運命の判定時刻</h4>
+                            </div>
+                        </div>
+
+                        <!-- Step 04: Final Entry -->
+                        <div class="flex items-center gap-6">
+                            <div class="flex flex-col items-center">
+                                <div class="w-0.5 h-12 bg-red-500"></div>
+                                <div class="w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center">
+                                    <i data-lucide="log-out" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-cyber text-[10px] text-red-500 tracking-[0.2em]">MISSION COMPLETE</p>
+                                <h4 class="text-xl font-bold text-white mt-1 uppercase tracking-wider">ファイナルエントリーする</h4>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="absolute bottom-8 left-8 right-8 card-glass p-4 text-[10px] font-cyber tracking-tighter">
-                    <p class="text-[#d4af37]">>> DATA FOUND: Sankaku-Market / Zone A-12</p>
-                    <p class="text-gray-500">>> COORDINATES: 43.1972° N, 140.9936° E</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 02: Rules (ルール) -->
+    <!-- Section 02: Rules (ルール概要) -->
     <section id="rules" class="py-32 bg-[#0d0d10] border-y border-white/5">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">02. OPERATIONAL RULES</h2>
-                <p class="text-4xl md:text-5xl font-bold uppercase tracking-tighter">作戦プロトコル</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="relative p-10 card-glass rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
-                    <div class="mb-8 p-4 bg-white/5 rounded-lg w-fit group-hover:bg-[#d4af37]/20 transition-colors">
-                        <i data-lucide="users" class="w-10 h-10 text-[#d4af37]"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">01. ロールを選択</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">
-                        <span class="text-[#d4af37] font-bold tracking-widest">ESTABLISHMENT</span>か<br>
-                        <span class="text-red-500 font-bold tracking-widest">RESISTANCE</span>か。<br>
-                        選択がルートとGP倍率を決定する。
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">02. OPERATIONAL PROTOCOL</h2>
+            <p class="text-4xl font-bold mb-16 uppercase tracking-tighter">戦略の極意</p>
+            
+            <div class="grid md:grid-cols-2 gap-12 text-left">
+                <div class="card-glass p-10 rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <i data-lucide="users" class="text-[#d4af37]"></i> ロールの選択
+                    </h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        <span class="text-[#d4af37] font-bold tracking-widest">ESTABLISHMENT</span>か<span class="text-red-500 font-bold tracking-widest">RESISTANCE</span>か。ルートの選択が、奪還すべき歴史と獲得GPの倍率を決定する。
                     </p>
                 </div>
-
-                <div class="relative p-10 card-glass rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
-                    <div class="mb-8 p-4 bg-white/5 rounded-lg w-fit group-hover:bg-[#d4af37]/20 transition-colors">
-                        <i data-lucide="brain-circuit" class="w-10 h-10 text-[#d4af37]"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">02. 歴史の奪還</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">
-                        座標へ到達し、謎を解き、歴史を学べ。<br>
-                        知識と物理的接触が、ランキングを押し上げる唯一の武器となる。
-                    </p>
-                </div>
-
-                <div class="relative p-10 card-glass rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
-                    <div class="mb-8 p-4 bg-white/5 rounded-lg w-fit group-hover:bg-[#d4af37]/20 transition-colors">
-                        <i data-lucide="hourglass" class="w-10 h-10 text-[#d4af37]"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">03. 潜伏による累積</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">
-                        <span class="text-[#d4af37] font-bold">「時間は資産である。」</span><br>
-                        清算（ファイナルエントリー）をしない限り、あなたの獲得GPはリセットされず翌日へ持ち越される。
+                <div class="card-glass p-10 rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <i data-lucide="hourglass" class="text-[#d4af37]"></i> 潜伏による累積
+                    </h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        <span class="text-white font-bold italic">「時間は資産である。」</span><br>
+                        清算をしない限り、獲得したGPは翌日へ持ち越される。数日間の「潜伏」こそが王座を奪う必勝法となる。
                     </p>
                 </div>
             </div>
@@ -176,45 +222,39 @@
     <!-- Section 03: Reward (報酬 - 勝者) -->
     <section id="reward" class="py-32 relative overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#d4af37]/5 rounded-full blur-[120px] z-0"></div>
-
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="text-center mb-20">
                 <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">03. CHAMPION'S REWARD</h2>
                 <p class="text-4xl md:text-5xl font-bold italic tracking-tighter">「王者の晩餐」への招待状</p>
             </div>
-
             <div class="grid lg:grid-cols-5 gap-8 items-stretch">
                 <div class="lg:col-span-2 space-y-8 flex flex-col justify-center">
                     <div class="card-glass p-8 rounded-2xl gold-glow border-[#d4af37]/30">
-                        <h3 class="text-2xl font-bold mb-4 flex items-center text-white">
+                        <h3 class="text-2xl font-bold mb-4 flex items-center text-white text-shadow-strong">
                             <i data-lucide="trophy" class="mr-3 text-[#d4af37]"></i> デイリートップランカー
                         </h3>
                         <p class="text-gray-300 leading-relaxed font-light">
-                            <span class="text-white font-bold">毎日17:00、その日の集計が判定される。</span><br>
-                            蓄積された全GPを投じて「清算」を行った全プレイヤーの中から、その日のトップ1組にのみ豪華スペシャルディナーが振る舞われる。
+                            毎日17:00の集計時点で、蓄積された全GPを投じて「清算」を行った者の中から、その日のトップ1組にのみ豪華スペシャルディナーが振る舞われる。
                         </p>
                     </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37]">
-                                <i data-lucide="utensils"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-lg text-white">豪華スペシャルディナー</p>
-                                <p class="text-sm text-gray-500">歴史的建造物を貸し切る究極の美食体験</p>
-                            </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37]">
+                            <i data-lucide="utensils"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg text-white">豪華スペシャルディナー</p>
+                            <p class="text-sm text-gray-500">歴史的建造物を貸し切る究極の美食体験</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="lg:col-span-3 relative min-h-[400px]">
-                    <div class="absolute inset-0 card-glass rounded-3xl overflow-hidden border-[#d4af37]/10">
-                        <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1550966841-39148b7c3868?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-70"></div>
+                    <div class="absolute inset-0 card-glass rounded-3xl overflow-hidden border-[#d4af37]/10 shadow-2xl">
+                        <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1550966841-39148b7c3868?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-105"></div>
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent"></div>
                         <div class="absolute bottom-10 left-10 right-10">
                             <p class="font-cyber text-[10px] text-[#d4af37] mb-2 tracking-[0.3em]">CHAMPION ONLY</p>
-                            <h4 class="text-2xl font-bold text-white">旧青山別邸：貴賓館</h4>
-                            <p class="text-sm text-gray-400 font-light">小樽の網元が築いた、美の極地での晩餐。</p>
+                            <h4 class="text-2xl font-bold text-white text-shadow-strong">旧青山別邸：貴賓館</h4>
+                            <p class="text-sm text-gray-400 font-light leading-relaxed">小樽の網元が築いた、美の極地での晩餐。</p>
                         </div>
                     </div>
                 </div>
@@ -228,48 +268,41 @@
             <div class="flex flex-col md:flex-row items-center justify-between mb-20 gap-8">
                 <div class="text-center md:text-left">
                     <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 resistance-red">04. LOSER'S FEAST</h2>
-                    <p class="text-4xl md:text-5 font-bold italic">敗者の大宴会</p>
+                    <p class="text-4xl md:text-5 font-bold italic tracking-tighter">敗者の大宴会</p>
                 </div>
-                <div class="card-glass px-8 py-4 border-red-900/30 rounded-full flex items-center gap-4">
-                    <span class="text-gray-500 font-cyber text-xs">ADMISSION FEE:</span>
-                    <span class="text-2xl font-bold text-white">¥3,000</span>
+                <div class="card-glass px-8 py-4 border-red-900/30 rounded-full flex items-center gap-4 backdrop-blur-xl shadow-lg shadow-red-900/10">
+                    <span class="text-gray-500 font-cyber text-xs">ADMISSION:</span>
+                    <span class="text-2xl font-bold text-white font-cyber">¥3,000</span>
                 </div>
             </div>
-
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1 relative rounded-3xl overflow-hidden aspect-video card-glass group">
+                <div class="order-2 lg:order-1 relative rounded-3xl overflow-hidden aspect-video card-glass group border-red-900/20 shadow-2xl">
                     <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center opacity-60 group-hover:scale-110 transition-transform duration-700"></div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0c] to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0c] to-transparent opacity-80"></div>
                     <div class="relative p-12 flex flex-col justify-end h-full">
-                        <p class="font-cyber text-xs text-red-500 mb-2">BASE CAMP: ROBATA ISARIBI</p>
-                        <h4 class="text-3xl font-bold text-white mb-4">炉端焼き「漁火」</h4>
+                        <p class="font-cyber text-xs text-red-500 mb-2 tracking-[0.2em]">ROBATA ISARIBI</p>
+                        <h4 class="text-3xl font-bold text-white mb-4 text-shadow-strong">炉端焼き「漁火」</h4>
                         <p class="text-sm text-gray-400 font-light leading-relaxed">
-                            煙と活気に包まれた、敗者たちの聖域。今日出会った仲間と、語りきれなかった小樽の夜を。
+                            煙と活気に包まれた、敗者たちの聖域。<br>今日出会った仲間と、語りきれなかった小樽の夜を。
                         </p>
                     </div>
                 </div>
-
                 <div class="order-1 lg:order-2 space-y-8">
-                    <h3 class="text-2xl font-bold text-white leading-tight">
-                        トップランカーになれなくても、<br>小樽の夜は終わらない。
+                    <h3 class="text-2xl font-bold text-white leading-tight text-shadow-strong">
+                        トップを逃しても、小樽の夜は終わらない。
                     </h3>
-                    <p class="text-gray-400 font-light leading-relaxed">
-                        清算後、トップを逃したゴーストたちにのみ案内される秘密の会場。市場の老婆や車夫など、街を彩ったキャラクターたちと戦勝を称え合いましょう。
+                    <p class="text-gray-400 font-light leading-relaxed text-lg">
+                        「清算」を行い、トップを逃したゴーストたちへの特別招待状。<br>
+                        市場の餅焼き老婆や裏道を知り尽くした人力車夫など、街を彩ったキャラクターたちと、明日へ繋がる戦略を練る。
                     </p>
                     <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="card-glass p-6 rounded-xl flex items-start gap-4">
+                        <div class="card-glass p-6 rounded-xl flex items-start gap-4 border-red-900/10">
                             <i data-lucide="speech" class="text-red-500 shrink-0"></i>
-                            <div>
-                                <p class="text-sm font-bold text-white">戦友との交流</p>
-                                <p class="text-xs text-gray-500 mt-1">同じルートを辿った仲間と情報交換</p>
-                            </div>
+                            <div><p class="text-sm font-bold text-white">戦友との交流</p><p class="text-xs text-gray-500 mt-1">同じルートを辿った仲間と情報交換</p></div>
                         </div>
-                        <div class="card-glass p-6 rounded-xl flex items-start gap-4">
+                        <div class="card-glass p-6 rounded-xl flex items-start gap-4 border-red-900/10">
                             <i data-lucide="contact-2" class="text-red-500 shrink-0"></i>
-                            <div>
-                                <p class="text-sm font-bold text-white">NPCとの密談</p>
-                                <p class="text-xs text-gray-500 mt-1">翌日の作戦に有利な情報をハック</p>
-                            </div>
+                            <div><p class="text-sm font-bold text-white">名物NPCとの密談</p><p class="text-xs text-gray-500 mt-1">翌日の作戦に有利な情報をハック</p></div>
                         </div>
                     </div>
                 </div>
@@ -282,14 +315,10 @@
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">05. ENTRY INVESTMENT</h2>
-                <p class="text-4xl md:text-5xl font-bold uppercase tracking-tighter">ミッションへの投資</p>
+                <p class="text-4xl font-bold uppercase tracking-tighter">ミッションへの投資</p>
             </div>
-
-            <div class="card-glass p-12 rounded-3xl border border-white/10 text-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-8 opacity-5">
-                    <i data-lucide="landmark" class="w-32 h-32 text-white"></i>
-                </div>
-
+            <div class="card-glass p-12 rounded-3xl border border-white/10 text-center relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 p-8 opacity-5"><i data-lucide="landmark" class="w-32 h-32 text-white"></i></div>
                 <div class="relative z-10">
                     <p class="font-cyber text-gray-500 tracking-[0.4em] mb-4 text-xs">OPERATION ENTRY FEE</p>
                     <div class="flex items-center justify-center gap-2 mb-12">
@@ -297,41 +326,19 @@
                         <span class="text-7xl font-bold tracking-tighter font-cyber">5,000</span>
                         <span class="text-gray-500 font-bold self-end mb-2">/ 作戦</span>
                     </div>
-
-                    <div class="grid md:grid-cols-2 gap-8 text-left mb-12">
-                        <div class="p-8 card-glass rounded-2xl border-white/5">
-                            <div class="flex items-center gap-3 mb-4 text-[#d4af37]">
-                                <i data-lucide="play" class="w-6 h-6 fill-current"></i>
-                                <p class="font-bold text-lg">ビギニング・エントリー</p>
-                            </div>
-                            <p class="text-sm text-gray-400 leading-relaxed font-light">
-                                ブラウザ決済で全機能アンロック。GPの奪還を開始せよ。
-                            </p>
-                        </div>
-                        <div class="p-8 card-glass rounded-2xl border-white/5">
-                            <div class="flex items-center gap-3 mb-4 resistance-red">
-                                <i data-lucide="log-out" class="w-6 h-6"></i>
-                                <p class="font-bold text-lg">ファイナル・エントリー</p>
-                            </div>
-                            <p class="text-sm text-gray-400 leading-relaxed font-light">
-                                蓄積した全GPでディナー争奪戦へ挑む。清算時のみリセット。
-                            </p>
-                        </div>
-                    </div>
-
                     <div class="mb-12 p-6 bg-[#d4af37]/10 rounded-xl border border-[#d4af37]/40 flex items-start gap-4 text-left">
                         <i data-lucide="refresh-cw" class="w-6 h-6 text-[#d4af37] shrink-0 mt-1"></i>
                         <div>
-                            <p class="font-bold text-[#d4af37] mb-1">潜伏による GP キャリーオーバー</p>
-                            <p class="text-xs text-gray-400 leading-relaxed font-light">
-                                清算せずに潜伏せよ。翌日に新たなエントリーを追加することで、前日までのGPを持ち越したまま王座を確実に狙う戦略が可能。
+                            <p class="font-bold text-[#d4af37] mb-1 italic uppercase tracking-widest font-cyber text-sm">Strategic Carry-over</p>
+                            <p class="text-sm text-gray-400 font-light">
+                                清算（ファイナルエントリー）せずに潜伏せよ。翌日に新たなエントリーを追加することで、前日までのGPを持ち越したまま王座を確実に狙う戦略が可能。
                             </p>
                         </div>
                     </div>
-
-                    <button class="w-full button-glow py-6 bg-[#d4af37] text-black font-cyber font-bold text-2xl rounded-sm hover:bg-white transition-all tracking-widest">
-                        COMMENCE OPERATION
+                    <button class="w-full button-glow py-6 bg-[#d4af37] text-black font-cyber font-bold text-2xl rounded-sm hover:bg-white transition-all tracking-[0.2em] shadow-lg shadow-yellow-900/20 uppercase">
+                        Commence Operation
                     </button>
+                    <p class="mt-8 text-[10px] text-gray-600 uppercase tracking-[0.3em]">Authorized by First Engineer / Powered by Browser Technology</p>
                 </div>
             </div>
         </div>
