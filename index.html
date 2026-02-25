@@ -73,12 +73,9 @@
         </div>
     </header>
 
-    <!-- Section 01: Mission & Journey Map (背景にCanvasアニメーションを配置) -->
+    <!-- Section 01: Mission & Journey Map -->
     <section id="purpose" class="py-32 px-6 relative overflow-hidden bg-[#050508]">
-        
-        <!-- 背景Canvas（セクション全体を覆う） -->
         <canvas id="map-canvas" class="absolute inset-0 w-full h-full z-0 opacity-50 pointer-events-none"></canvas>
-        <!-- Canvasのエッジを馴染ませるグラデーション -->
         <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0c] via-transparent to-[#0a0a0c] z-0 pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto relative z-10">
@@ -88,7 +85,6 @@
             </div>
 
             <div class="grid lg:grid-cols-12 gap-12 items-start font-light">
-                <!-- 左側：テキスト説明 -->
                 <div class="lg:col-span-4 space-y-8">
                     <div class="card-glass p-8 rounded-lg border-l-4 border-[#d4af37] backdrop-blur-md bg-black/40">
                         <h3 class="font-bold text-[#d4af37] text-xl mb-4 flex items-center uppercase tracking-widest font-cyber">
@@ -103,12 +99,11 @@
                     </p>
                 </div>
 
-                <!-- 右側：ジャーニーマップ（前回のUIを復活・維持） -->
                 <div class="lg:col-span-8 relative z-10">
                     <div class="relative card-glass p-8 md:p-12 rounded-3xl border-[#d4af37]/20 overflow-hidden backdrop-blur-xl bg-[#0a0a0c]/80 shadow-2xl">
                         
                         <div class="relative space-y-12">
-                            <!-- Step 01: Beginning -->
+                            <!-- Step 01 -->
                             <div class="flex items-center gap-6">
                                 <div class="flex flex-col items-center">
                                     <div class="w-12 h-12 bg-[#d4af37] text-black rounded-full flex items-center justify-center">
@@ -122,7 +117,7 @@
                                 </div>
                             </div>
 
-                            <!-- Step 02: Exploration Loop -->
+                            <!-- Step 02 Loop -->
                             <div class="loop-border p-6 md:p-10 relative bg-white/5">
                                 <div class="absolute -top-4 left-6 bg-[#0a0a0c] px-4 py-1 border border-[#d4af37]/50 rounded-full">
                                     <p class="font-cyber text-[10px] text-[#d4af37] animate-pulse">RECURSIVE LOOP</p>
@@ -160,7 +155,7 @@
                                 </div>
                             </div>
 
-                            <!-- Step 03: Judgment -->
+                            <!-- Step 03 -->
                             <div class="flex items-center gap-6 mt-8">
                                 <div class="flex flex-col items-center">
                                     <div class="w-0.5 h-10 bg-gradient-to-b from-transparent via-red-500 to-red-500"></div>
@@ -174,7 +169,7 @@
                                 </div>
                             </div>
 
-                            <!-- Step 04: Final Entry -->
+                            <!-- Step 04 -->
                             <div class="flex items-center gap-6">
                                 <div class="flex flex-col items-center">
                                     <div class="w-0.5 h-12 bg-red-500"></div>
@@ -201,35 +196,140 @@
             <p class="text-4xl font-bold mb-16 uppercase tracking-tighter">戦略の極意</p>
             
             <div class="grid md:grid-cols-2 gap-12 text-left">
+                <!-- Protocol 1 -->
                 <div class="card-glass p-10 rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
-                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
-                        <i data-lucide="users" class="text-[#d4af37]"></i> ロールの選択
+                    <h3 class="text-xl lg:text-2xl font-bold mb-4 flex items-start gap-3 leading-tight">
+                        <i data-lucide="users" class="text-[#d4af37] shrink-0 mt-0.5"></i> 
+                        <span>ロールの選択</span>
                     </h3>
                     <p class="text-gray-400 font-light leading-relaxed">
                         <span class="text-[#d4af37] font-bold tracking-widest">ESTABLISHMENT</span>か<span class="text-red-500 font-bold tracking-widest">RESISTANCE</span>か。ルートの選択が、奪還すべき歴史と獲得GPの倍率を決定する。
                     </p>
                 </div>
+                
+                <!-- Protocol 2 -->
                 <div class="card-glass p-10 rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
-                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
-                        <i data-lucide="hourglass" class="text-[#d4af37]"></i> 潜伏による累積
+                    <h3 class="text-xl lg:text-2xl font-bold mb-4 flex items-start gap-3 leading-tight">
+                        <i data-lucide="hourglass" class="text-[#d4af37] shrink-0 mt-0.5"></i> 
+                        <span>潜伏による累積</span>
                     </h3>
                     <p class="text-gray-400 font-light leading-relaxed">
                         <span class="text-white font-bold italic">「時間は資産である。」</span><br>
                         清算をしない限り、獲得したGPは翌日へ持ち越される。数日間の「潜伏」こそが王座を奪う必勝法となる。
                     </p>
                 </div>
+
+                <!-- Protocol 3 -->
+                <div class="card-glass p-10 rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
+                    <h3 class="text-xl lg:text-2xl font-bold mb-4 flex items-start gap-3 leading-tight">
+                        <i data-lucide="compass" class="text-[#d4af37] shrink-0 mt-0.5"></i> 
+                        <span>小樽への旅は思い立った<br class="hidden md:block">瞬間に始まっている</span>
+                    </h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        『piece』は世界中に散らばっています。家を出たその一歩からミッション開始可能です。
+                    </p>
+                </div>
+
+                <!-- Protocol 4 -->
+                <div class="card-glass p-10 rounded-2xl group hover:border-[#d4af37]/40 transition-all duration-500">
+                    <h3 class="text-xl lg:text-2xl font-bold mb-4 flex items-start gap-3 leading-tight">
+                        <i data-lucide="store" class="text-[#d4af37] shrink-0 mt-0.5"></i> 
+                        <span>GPでオプションを<br class="hidden md:block">有効活用しろ</span>
+                    </h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        GPをある程度貯めると、様々なオプションと交換可能です。時と場合によってはその選択によって大逆転も可能？かもしれませんよ。
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 03: Reward (報酬 - 勝者) -->
-    <section id="reward" class="py-32 relative overflow-hidden">
+    <!-- Section 03: Tactical Options (戦術オプション) -->
+    <section id="options" class="py-32 relative bg-[#0a0a0c]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">03. TACTICAL OPTIONS</h2>
+                <p class="text-4xl md:text-5xl font-bold uppercase tracking-tighter">戦術オプション</p>
+                <p class="text-gray-400 mt-6 max-w-2xl mx-auto font-light leading-relaxed">
+                    蓄積したGPを消費し、作戦を有利に進めるための「人材」と「モビリティ」を招集せよ。適切な投資が、戦局を大きく左右する。
+                </p>
+            </div>
+
+            <!-- カテゴリ: 人材招集 -->
+            <div class="mb-16">
+                <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
+                    <div class="p-2 bg-[#d4af37]/10 rounded-lg"><i data-lucide="users-round" class="text-[#d4af37] w-5 h-5"></i></div>
+                    <h3 class="font-cyber text-xl text-[#d4af37] tracking-widest">>> PERSONNEL <span class="text-sm text-gray-500">[人材招集]</span></h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card-glass p-8 rounded-2xl border-white/5 hover:border-[#d4af37]/30 transition-all group">
+                        <i data-lucide="key" class="w-8 h-8 text-gray-500 mb-6 group-hover:text-[#d4af37] transition-colors"></i>
+                        <h4 class="font-bold text-lg mb-3">キーパーソン</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">有益な情報が得られるかも。通常では知り得ない裏の「piece」への導線を解放する。</p>
+                    </div>
+                    
+                    <div class="card-glass p-8 rounded-2xl border-white/5 hover:border-[#d4af37]/30 transition-all group">
+                        <i data-lucide="languages" class="w-8 h-8 text-gray-500 mb-6 group-hover:text-[#d4af37] transition-colors"></i>
+                        <h4 class="font-bold text-lg mb-3">通訳</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">言語の壁を取り払え。外国語で暗号化されたアーカイブを解読し、新たな座標を導き出す。</p>
+                    </div>
+                    
+                    <div class="card-glass p-8 rounded-2xl border-white/5 hover:border-[#d4af37]/30 transition-all group">
+                        <i data-lucide="camera" class="w-8 h-8 text-gray-500 mb-6 group-hover:text-[#d4af37] transition-colors"></i>
+                        <h4 class="font-bold text-lg mb-3">フォトグラファー</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">映えコンテンツで差をつけろ。視覚的な記録を残すことで特定のアセットをハックする。</p>
+                    </div>
+                    
+                    <div class="card-glass p-8 rounded-2xl border-white/5 hover:border-[#d4af37]/30 transition-all group">
+                        <i data-lucide="map" class="w-8 h-8 text-gray-500 mb-6 group-hover:text-[#d4af37] transition-colors"></i>
+                        <h4 class="font-bold text-lg mb-3">ナビゲーター</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">手形がないと入れないスポットへ。一般観光客には閉ざされた歴史的建造物へ潜入可能に。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- カテゴリ: 移動手段 -->
+            <div>
+                <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
+                    <div class="p-2 bg-[#d4af37]/10 rounded-lg"><i data-lucide="car" class="text-[#d4af37] w-5 h-5"></i></div>
+                    <h3 class="font-cyber text-xl text-[#d4af37] tracking-widest">>> MOBILITY <span class="text-sm text-gray-500">[移動手段]</span></h3>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card-glass p-8 rounded-2xl border-white/5 hover:border-[#d4af37]/30 transition-all group">
+                        <i data-lucide="footprints" class="w-8 h-8 text-gray-500 mb-6 group-hover:text-[#d4af37] transition-colors"></i>
+                        <h4 class="font-bold text-lg mb-3">人力車</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">車夫からの裏情報など多くの要素を含むが、時間を要するためタイムキーパーが必要か？</p>
+                    </div>
+                    
+                    <div class="card-glass p-8 rounded-2xl border-white/5 hover:border-[#d4af37]/30 transition-all group">
+                        <i data-lucide="car" class="w-8 h-8 text-gray-500 mb-6 group-hover:text-[#d4af37] transition-colors"></i>
+                        <h4 class="font-bold text-lg mb-3">ハイヤー</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">悪天候下でも体力を削らず、広範囲に散らばる「piece」を迅速に回収するための足。</p>
+                    </div>
+                    
+                    <div class="card-glass p-8 rounded-2xl border-white/5 hover:border-yellow-500/50 transition-all group relative overflow-hidden">
+                        <div class="absolute -right-8 -top-8 w-24 h-24 bg-yellow-500/10 rounded-full blur-2xl"></div>
+                        <i data-lucide="car-front" class="w-8 h-8 text-yellow-600 mb-6 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-lg mb-3 text-yellow-500">クラシックカー</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">圧倒的なステータスの証明。高額なGPを要するが、移動そのものが権力となる最高峰の選択。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: Reward (報酬 - 勝者) -->
+    <section id="reward" class="py-32 relative overflow-hidden border-t border-white/5">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#d4af37]/5 rounded-full blur-[120px] z-0"></div>
+
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="text-center mb-20">
-                <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">03. CHAMPION'S REWARD</h2>
+                <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">04. CHAMPION'S REWARD</h2>
                 <p class="text-4xl md:text-5xl font-bold italic tracking-tighter">「王者の晩餐」への招待状</p>
             </div>
+
             <div class="grid lg:grid-cols-5 gap-8 items-stretch">
                 <div class="lg:col-span-2 space-y-8 flex flex-col justify-center">
                     <div class="card-glass p-8 rounded-2xl gold-glow border-[#d4af37]/30">
@@ -250,6 +350,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="lg:col-span-3 relative min-h-[400px]">
                     <div class="absolute inset-0 card-glass rounded-3xl overflow-hidden border-[#d4af37]/10 shadow-2xl">
                         <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1550966841-39148b7c3868?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-105"></div>
@@ -265,12 +366,12 @@
         </div>
     </section>
 
-    <!-- Section 04: Loser's Banquet (報酬 - 敗者) -->
+    <!-- Section 05: Loser's Banquet (報酬 - 敗者) -->
     <section id="loser-banquet" class="py-32 bg-[#0a0a0c]/50 border-y border-white/5 relative">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between mb-20 gap-8">
                 <div class="text-center md:text-left">
-                    <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 resistance-red">04. LOSER'S FEAST</h2>
+                    <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 resistance-red">05. LOSER'S FEAST</h2>
                     <p class="text-4xl md:text-5 font-bold italic tracking-tighter">敗者の大宴会</p>
                 </div>
                 <div class="card-glass px-8 py-4 border-red-900/30 rounded-full flex items-center gap-4 backdrop-blur-xl shadow-lg shadow-red-900/10">
@@ -313,11 +414,11 @@
         </div>
     </section>
 
-    <!-- Section 05: Entry Fee (エントリー) -->
+    <!-- Section 06: Entry Fee (エントリー) -->
     <section id="entry" class="py-32 bg-[#0a0a0c]">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">05. ENTRY INVESTMENT</h2>
+                <h2 class="font-cyber text-sm tracking-[0.5em] mb-4 text-[#d4af37]">06. ENTRY INVESTMENT</h2>
                 <p class="text-4xl font-bold uppercase tracking-tighter">ミッションへの投資</p>
             </div>
             <div class="card-glass p-12 rounded-3xl border border-white/10 text-center relative overflow-hidden shadow-2xl">
@@ -393,14 +494,12 @@
                 canvas.width = width;
                 canvas.height = height;
                 
-                // ノード（点）の生成：小樽の地形を模した分布
                 nodes = [];
                 const numNodes = 150;
                 for (let i = 0; i < numNodes; i++) {
                     let x = Math.random() * width;
                     let y = Math.random() * height;
                     
-                    // 海岸線・運河沿いを意識した密度調整
                     if (Math.random() > 0.3) {
                         const curve = Math.sin(x / width * Math.PI) * height * 0.3;
                         y = curve + (Math.random() - 0.5) * height * 0.6 + height * 0.5;
@@ -418,12 +517,10 @@
 
             window.addEventListener('resize', initCanvas);
             
-            // 地図のトレースライン（背景の固定線）
             const drawTraces = () => {
                 ctx.strokeStyle = 'rgba(212, 175, 55, 0.15)';
                 ctx.lineWidth = 1;
                 ctx.beginPath();
-                // 緩やかなカーブ（海岸線や線路のイメージ）
                 ctx.moveTo(0, height * 0.6);
                 ctx.bezierCurveTo(width * 0.3, height * 0.4, width * 0.6, height * 0.8, width, height * 0.4);
                 ctx.moveTo(width * 0.2, height);
@@ -431,7 +528,6 @@
                 ctx.stroke();
             };
 
-            // ノード（点）の描画と点滅
             const drawNodes = () => {
                 nodes.forEach(node => {
                     node.opacity += node.fadeSpeed;
@@ -450,13 +546,12 @@
                 });
             };
 
-            // ルート（A地点からB、C...へと伸びる経路）の生成
             const createRoute = () => {
                 if (nodes.length === 0) return;
                 
                 let current = nodes[Math.floor(Math.random() * nodes.length)];
                 const path = [current];
-                const steps = Math.floor(Math.random() * 6) + 4; // 4〜9点を経由
+                const steps = Math.floor(Math.random() * 6) + 4;
                 
                 let unvisited = [...nodes];
                 unvisited.splice(unvisited.indexOf(current), 1);
@@ -464,14 +559,12 @@
                 for (let i = 0; i < steps; i++) {
                     if (unvisited.length === 0) break;
                     
-                    // 現在位置から近い点を探す
                     unvisited.sort((a, b) => {
                         const distA = Math.hypot(a.x - current.x, a.y - current.y);
                         const distB = Math.hypot(b.x - current.x, b.y - current.y);
                         return distA - distB;
                     });
                     
-                    // 単純な直線にならないよう、近い3点からランダムに次を選ぶ
                     const nextIndex = Math.floor(Math.random() * Math.min(3, unvisited.length));
                     const next = unvisited[nextIndex];
                     
@@ -483,14 +576,13 @@
                 routes.push({
                     path: path,
                     progress: 0,
-                    speed: Math.random() * 0.008 + 0.005, // 進行速度
+                    speed: Math.random() * 0.008 + 0.005,
                     life: 1.0, 
-                    decay: Math.random() * 0.01 + 0.005,  // 消滅速度
+                    decay: Math.random() * 0.01 + 0.005,
                     completed: false
                 });
             };
 
-            // ルートを辿る線のアニメーション描画
             const drawRoutes = () => {
                 for (let i = routes.length - 1; i >= 0; i--) {
                     const r = routes[i];
@@ -513,12 +605,10 @@
                         segmentProgress = 1;
                     }
 
-                    // すでに通過した経路を描画
                     for (let j = 1; j <= currentSegmentIndex; j++) {
                         ctx.lineTo(r.path[j].x, r.path[j].y);
                     }
                     
-                    // 現在進んでいる最中の経路を描画
                     let curX, curY;
                     if (!r.completed) {
                         const p1 = r.path[currentSegmentIndex];
@@ -533,7 +623,6 @@
                     
                     ctx.stroke();
 
-                    // 先端の光るヘッド部分を描画
                     if (!r.completed) {
                         ctx.fillStyle = `rgba(255, 255, 255, ${r.life})`;
                         ctx.beginPath();
@@ -541,9 +630,8 @@
                         ctx.fill();
                     }
                     
-                    ctx.shadowBlur = 0; // 他の描画への影響をリセット
+                    ctx.shadowBlur = 0;
 
-                    // 進行と消滅の処理
                     if (!r.completed) {
                         r.progress += r.speed;
                     } else {
@@ -562,7 +650,6 @@
                 drawNodes();
                 drawRoutes();
 
-                // 一定の確率で新しいルート探索を開始する
                 if (Math.random() < 0.05 && routes.length < 10) { 
                     createRoute();
                 }
@@ -570,7 +657,6 @@
                 requestAnimationFrame(animate);
             };
 
-            // 初期化と実行
             setTimeout(() => {
                 initCanvas();
                 animate();
