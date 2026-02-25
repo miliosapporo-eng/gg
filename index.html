@@ -51,14 +51,14 @@
 </head>
 <body>
 
-    <!-- Hero Section: 下辺にコンテンツを配置 -->
+    <!-- Hero Section: 下辺にコンテンツを配置。画像は無加工 -->
     <header class="relative h-screen flex items-end justify-center overflow-hidden border-b border-white/5 pb-24">
         <div class="absolute inset-0 z-0">
-            <!-- ヒーロー画像: images/hero.png | bg-bottom で画像の下端を基準に -->
-            <div class="w-full h-full bg-[url('images/hero.png')] bg-cover bg-bottom opacity-50 grayscale" 
+            <!-- ヒーロー画像: エフェクト（opacity, grayscale）を削除 -->
+            <div class="w-full h-full bg-[url('images/hero.png')] bg-cover bg-bottom" 
                  onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2076&auto=format&fit=crop)'"></div>
-            <!-- コンテンツの視認性を高めるグラデーション -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent opacity-80"></div>
+            <!-- テキスト視認性のための最小限のグラデーションのみ保持 -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent opacity-70"></div>
         </div>
         
         <div class="relative z-10 text-center px-4 max-w-4xl">
@@ -66,15 +66,14 @@
                 Web Browser Based Immersive Experience
             </div>
             
-            <!-- スローガンを画像の下辺付近（画面下部）に配置 -->
-            <p class="text-xl md:text-2xl font-light tracking-[0.4em] mb-12 text-gray-300 uppercase">Investigate. Decrypt. Dominate.</p>
+            <p class="text-xl md:text-2xl font-light tracking-[0.4em] mb-12 text-white uppercase drop-shadow-lg">Investigate. Decrypt. Dominate.</p>
             
             <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
                 <button onclick="document.getElementById('entry').scrollIntoView({behavior: 'smooth'})" class="button-glow w-full md:w-auto px-12 py-4 bg-[#d4af37] text-black font-bold rounded-sm hover:bg-white transition-all duration-300 flex items-center justify-center group">
                     <i data-lucide="zap" class="mr-2 w-5 h-5 fill-current"></i> セッションに接続する
                 </button>
-                <div class="text-xs text-gray-500 font-cyber tracking-widest text-left md:text-center">
-                    <p>SYSTEM STATUS: <span class="text-green-500">READY</span></p>
+                <div class="text-xs text-gray-400 font-cyber tracking-widest text-left md:text-center">
+                    <p>SYSTEM STATUS: <span class="text-green-500 font-bold">READY</span></p>
                     <p>NO DOWNLOAD REQUIRED</p>
                 </div>
             </div>
@@ -326,7 +325,7 @@
                     <div class="mb-12 p-6 bg-[#d4af37]/10 rounded-xl border border-[#d4af37]/40 flex items-start gap-4 text-left">
                         <i data-lucide="refresh-cw" class="w-6 h-6 text-[#d4af37] shrink-0 mt-1"></i>
                         <div>
-                            <p class="font-bold text-[#d4af37] mb-1">潜伏によるGPキャリーオーバー</p>
+                            <p class="font-bold text-[#d4af37] mb-1">潜伏による GP キャリーオーバー</p>
                             <p class="text-xs text-gray-400 leading-relaxed">
                                 今日はポイントが足りないか？ ならば清算せずに潜伏せよ。翌日に新たなエントリー（5,000円）を追加することで、前日までのGPを持ち越したまま王座を確実に狙う「潜伏戦略」が可能。
                             </p>
